@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+if [ ! -L /.fusioncoin ] 
+  then ln -s /root/.fusioncoin /
+fi
+if [ -f /root/.fusioncoin/.firstrun ] 
+   then sed -i '/rpcpassword/d' /root/.fusioncoin/fusioncoin.conf 
+   pass=`makepasswd -char 32` ;echo "rpcpassword=${pass}"  >> /root/.fusioncoin/fusioncoin.conf
+   rm /root/.fusioncoin/.firstrun
+fi
+
+exec /usr/local/bin/fusioncoind -datadir=/fusionblocks -conf=/root/.fusioncoin/fusioncoin.conf
