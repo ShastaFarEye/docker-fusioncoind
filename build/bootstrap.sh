@@ -28,8 +28,8 @@ apt-get install -y wget makepasswd libqrencode-dev libcurl4-openssl-dev automake
 mkdir -p /src
 
 
-mkdir /root/.mazacoin
-touch /root/.mazacoin/.firstrun
+mkdir /root/.fusioncoin
+touch /root/.fusioncoin/.firstrun
 mkdir /etc/service/fusioncoind
 # Download, compile and install fusioncoind.
 cd /src
